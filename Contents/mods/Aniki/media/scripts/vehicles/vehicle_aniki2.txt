@@ -1,0 +1,370 @@
+module Base
+{
+	model Vehicle_Aniki
+	{
+		mesh = vehicles/Vehicle_Aniki,
+		shader = vehicle_norandom_multiuv,
+		invertX = FALSE,
+		scale = 0.01,
+	}
+
+	vehicle Aniki2
+	{
+		mechanicType = 1,
+		offRoadEfficiency = 0.8,
+		engineRepairLevel = 4,
+		playerDamageProtection = 0,
+
+		model
+		{
+			file = Vehicle_Aniki,
+			scale = 0.5600,
+			offset = 0.0000 0.0536 0.0000,
+		}
+
+		spawnOffsetY = 0.19392952,
+
+		skin
+		{
+			texture = Vehicles/Vehicle_Aniki,
+		}
+
+		extents = 3.2500 3.7500 5.8571,
+		mass = 100,
+		physicsChassisShape = 3.2500 3.7500 5.8571,
+		centerOfMassOffset = 0.0000 2.8929 0.0000,
+		shadowExtents = 3.9502 5.2902,
+		shadowOffset = -0.0417 -0.3845,
+		engineForce = 10000,
+		maxSpeed = 200f,
+		engineLoudness = 10,
+		engineQuality = 85,
+		gearRatioCount = 4,
+		gearRatioR = 4,
+		gearRatio1 = 4,
+		gearRatio2 = 3,
+		gearRatio3 = 2.5,
+		gearRatio4 = 1.0,
+		brakingForce = 60,
+		stoppingMovementForce = 4.0f,
+		rollInfluence = 0.50f,
+		steeringIncrement = 0.04,
+		steeringClamp = 0.3,
+		suspensionStiffness = 30,
+		suspensionCompression = 3.83,
+		suspensionDamping = 2.88,
+		maxSuspensionTravelCm = 12,
+		suspensionRestLength = 0.5,
+		wheelFriction = 1.6f,
+		frontEndHealth = 10000,
+		rearEndHealth = 10000,
+		seats = 1,
+
+        textureLights = Vehicles/Vehicle_Aniki_lights,
+
+		sound =
+		{
+			engine = gachisiren,
+			engineStart = gachion,
+			engineTurnOff = gachishoulder,
+			horn = GachiScream,
+			ignitionFail = gachifuckyou,
+		}
+
+
+		model Anikifrontwheelleft
+		{
+			mesh = vehicles/Vehicle_AnikiWheelLeft,
+			texture = vehicles/Vehicle_Aniki,
+			shader = vehiclewheel,
+		}
+
+		model Anikifrontwheelright
+		{
+			mesh = vehicles/Vehicle_AnikiWheelRight,
+			texture = vehicles/Vehicle_Aniki,
+			shader = vehiclewheel,
+		}
+
+		model Anikibackwheelleft
+		{
+			mesh = vehicles/Vehicle_AnikiWheelLeft,
+			texture = vehicles/Vehicle_Aniki,
+			shader = vehiclewheel,
+		}
+
+		model Anikibackwheelright
+		{
+			mesh = vehicles/Vehicle_AnikiWheelRight,
+			texture = vehicles/Vehicle_Aniki,
+			shader = vehiclewheel,
+		}
+
+		wheel FrontLeft
+		{
+			front = true,
+			offset = -1.2857 0.0714 1.5179,
+			radius = 0.60f,
+			width = 0.30f,
+		}
+
+		wheel FrontRight
+		{
+			front = true,
+			offset = 1.2321 0.0714 1.5179,
+			radius = 0.60f,
+			width = 0.30f,
+		}
+
+		wheel RearLeft
+		{
+			front = false,
+			offset = -1.2500 0.0714 -2.2321,
+			radius = 0.60f,
+			width = 2.22f,
+		}
+
+		wheel RearRight
+		{
+			front = false,
+			offset = 1.2321 0.0714 -2.2321,
+			radius = 0.60f,
+			width = 2.22f,
+		}
+
+		passenger FrontRight
+		{
+			showPassenger = true,
+			hasRoof = true,
+
+			position inside
+			{
+				offset = 0.0000 3.5000 0.0000,
+				rotate = 0.0000 0.0000 0.0000,
+			}
+
+			position outside
+			{
+				offset = 0.0000 -0.0179 -4.0179,
+				rotate = 0.0000 0.0000 0.0000,
+				area = SeatFrontRight,
+			}
+		}
+
+		area Engine
+		{
+			xywh = 0.0000 -4.6071 4.0000 2.0000,
+		}
+
+		area TruckBed
+		{
+			xywh = -2.0893 0.0000 0.7857 -0.7500,
+		}
+
+		area SeatFrontRight
+		{
+			xywh = -2.5179 0.0000 2.0000 2.0000,
+		}
+
+		area GasTank
+		{
+			xywh = -1.6071 1.4464 0.0000 0.0000,
+		}
+
+		area TireFrontLeft
+		{
+			xywh = 1.0000 3.0000 0.0000 0.0000,
+		}
+
+		area TireFrontRight
+		{
+			xywh = -1.0000 3.0000 0.0000 0.0000,
+		}
+
+		area TireRearLeft
+		{
+			xywh = 2.0000 -1.0000 0.0000 0.0000,
+		}
+
+		area TireRearRight
+		{
+			xywh = -2.0000 -1.0000 0.0000 0.0000,
+		}
+
+		template = Seat/part/SeatFrontRight,
+		template = GasTank,
+		template = Battery,
+		template = Engine,
+		template = Muffler,
+
+		part Muffler
+		{
+			table install
+			{
+				recipes = Intermediate Mechanics,
+			}
+
+			table uninstall
+			{
+				recipes = Intermediate Mechanics,
+			}
+		}
+
+		template = EngineDoor,
+
+		part EngineDoor
+		{
+			table install
+			{
+				recipes = Intermediate Mechanics,
+			}
+
+			table uninstall
+			{
+				recipes = Intermediate Mechanics,
+			}
+		}
+
+		part Heater
+		{
+			category = engine,
+
+			lua
+			{
+				update = Vehicles.Update.Heater,
+			}
+		}
+
+		template = Windshield/part/Windshield,
+		template = Windshield/part/WindshieldRear,
+
+		part Windshield*
+		{
+			table install
+			{
+				recipes = Intermediate Mechanics,
+			}
+
+			table uninstall
+			{
+				recipes = Intermediate Mechanics,
+			}
+		}
+
+		template = Window/part/WindowFrontLeft,
+		template = Window/part/WindowFrontRight,
+
+		part Window*
+		{
+			table install
+			{
+				recipes = Intermediate Mechanics,
+			}
+
+			table uninstall
+			{
+				recipes = Intermediate Mechanics,
+			}
+		}
+
+		template = Door/part/DoorFrontLeft,
+		template = Door/part/DoorFrontRight,
+		template = Door/part/DoorRearRight,
+
+		part Door*
+		{
+			table install
+			{
+				recipes = Intermediate Mechanics,
+			}
+
+			table uninstall
+			{
+				recipes = Intermediate Mechanics,
+			}
+		}
+
+		template = Tire,
+		template = Axle,
+
+		part TireFrontLeft
+		{
+			model InflatedTirePlusWheel
+			{
+				file = Vehicle_AnikiWheelLeft,
+			}
+		}
+
+		part TireFrontRight
+		{
+			model InflatedTirePlusWheel
+			{
+				file = Vehicle_AnikiWheelRight,
+			}
+		}
+
+		part TireRearLeft
+		{
+			model InflatedTirePlusWheel
+			{
+				file = Vehicle_AnikiWheelLeft,
+			}
+		}
+
+		part TireRearRight
+		{
+			model InflatedTirePlusWheel
+			{
+				file = Vehicle_AnikiWheelRight,
+			}
+		}
+
+		template = Brake,
+
+		part Brake*
+		{
+			table install
+			{
+				skills = Mechanics:4,
+				recipes = Intermediate Mechanics,
+			}
+
+			table uninstall
+			{
+				skills = Mechanics:4,
+				recipes = Intermediate Mechanics,
+			}
+		}
+
+		template = Suspension,
+
+		part Suspension*
+		{
+			table install
+			{
+				skills = Mechanics:4,
+				recipes = Intermediate Mechanics,
+			}
+
+			table uninstall
+			{
+				skills = Mechanics:4,
+				recipes = Intermediate Mechanics,
+			}
+		}
+
+		physics box
+		{
+			offset = 0.0476 1.1587 -0.0159,
+			extents = 3.1111 2.3016 7.0952,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+
+		attachment trailerfront
+		{
+			offset = 0.0000 0.0000 4.5256,
+			rotate = 0.0000 0.0000 0.0000,
+			zoffset = 1.0000,
+		}
+	}
+}

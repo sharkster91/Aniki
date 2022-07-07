@@ -1,0 +1,8 @@
+version=1
+id=2781811832
+title= Aniki Muscle Roller
+description= Ass we can.
+description=
+description= RIP Aniki.
+tags=Build 41;Silly/Fun;Vehicles
+visibility=public
